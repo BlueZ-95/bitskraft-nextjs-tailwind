@@ -2,21 +2,40 @@ import Image from 'next/image';
 
 function Header() {
     return (
-        <header className="flex flex-col sm:flex-row container mx-auto my-5 justify-between items-center h-auto">
-            {/* Logo */}
-            <div>
+        <header className=" container mx-auto my-5">
+            {/* Desktop screen header */}
+            <div className="hidden sm:flex flex-row justify-between items-center h-auto">
+                {/* Logo */}
                 <Image src="/bitsKraftLogo.svg" width={150} height={50} layout="fixed" />
+
+                {/* Links */}
+                <div className="flex flex-col sm:flex-row justify-evenly items-center w-auto">
+                    <a className="cursor-pointer mx-4" href="#">Our Work</a>
+                    <a className="cursor-pointer mx-4" href="#">Services</a>
+                    <a className="cursor-pointer mx-4" href="#">About</a>
+                    <a className="cursor-pointer mx-4" href="#">Showcase</a>
+                </div>
             </div>
 
-            {/* Links */}
-            <div className="flex flex-col sm:flex-row justify-evenly items-center w-1/3">
-                <a className="cursor-pointer" href="#">Our Work</a>
-                <a className="cursor-pointer" href="#">Services</a>
-                <a className="cursor-pointer" href="#">About</a>
-                <a className="cursor-pointer" href="#">Showcase</a>
-                <span className="hidden">
-                    <Image src="/Hamburger.svg" width={30} height={30} layout="fixed" />
-                </span>
+            {/* Mobile screen header */}
+            <div className="sm:hidden flex flex-col justify-between items-center h-auto">
+                {/* Logo */}
+                <div className="flex justify-between w-full">
+                    <span className="mx-5">
+                        <Image src="/bitsKraftLogo.svg" width={150} height={50} layout="fixed" />
+                    </span>
+                    <span className="mx-5">
+                        <Image src="/Hamburger.svg" width={30} height={50} layout="fixed" />
+                    </span>
+                </div>
+
+                {/* Links */}
+                <div className="flex flex-col justify-between items-center my-3">
+                    <a className="cursor-pointer mx-4" href="#">Our Work</a>
+                    <a className="cursor-pointer mx-4" href="#">Services</a>
+                    <a className="cursor-pointer mx-4" href="#">About</a>
+                    <a className="cursor-pointer mx-4" href="#">Showcase</a>
+                </div>
             </div>
         </header>
     )
