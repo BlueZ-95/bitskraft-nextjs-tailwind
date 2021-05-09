@@ -38,7 +38,7 @@ function Header() {
                 </div>
 
                 {/* Links */}
-                <div className={`${IsMenuVisible ? 'flex' : 'hidden'} flex-col justify-between items-center my-3 text-xl`}>
+                <div className={`${IsMenuVisible ? 'flex' : 'hidden'} flex-col justify-between items-center mx-3 my-3 w-2/3 text-xl border-2 rounded-lg`}>
                     <a className="cursor-pointer mx-4" href="#">Our Work</a>
                     <a className="cursor-pointer mx-4" href="#">Services</a>
                     <a className="cursor-pointer mx-4" href="#">About</a>
