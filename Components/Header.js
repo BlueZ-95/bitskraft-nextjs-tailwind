@@ -1,6 +1,14 @@
 import Image from 'next/image';
+import { useState } from 'react';
 
 function Header() {
+
+    const [IsMenuVisible, SetMenuVisible] = useState(false);
+    
+    const toggleMenu = () => {
+        SetMenuVisible(IsMenuVisible ? false : true);
+    }
+
     return (
         <header className=" container mx-auto my-5">
             {/* Desktop screen header */}
@@ -24,13 +32,13 @@ function Header() {
                     <span className="mx-5">
                         <Image src="/bitsKraftLogo.svg" width={150} height={50} layout="fixed" />
                     </span>
-                    <span className="mx-5">
+                    <span className="mx-5" onClick={toggleMenu}>
                         <Image src="/Hamburger.svg" width={30} height={50} layout="fixed" />
                     </span>
                 </div>
 
                 {/* Links */}
-                <div className="flex flex-col justify-between items-center my-3">
+                <div className={`${IsMenuVisible ? 'flex' : 'hidden'} flex-col justify-between items-center my-3 text-xl`}>
                     <a className="cursor-pointer mx-4" href="#">Our Work</a>
                     <a className="cursor-pointer mx-4" href="#">Services</a>
                     <a className="cursor-pointer mx-4" href="#">About</a>
