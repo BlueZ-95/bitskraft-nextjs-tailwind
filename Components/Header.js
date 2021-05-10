@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import HeaderStyles from '../styles/Header.module.css';
 
 function Header() {
 
@@ -10,7 +11,7 @@ function Header() {
     }
 
     return (
-        <header className=" container mx-auto my-5">
+        <header className="container mx-auto my-5">
             {/* Desktop screen header */}
             <div className="hidden sm:flex flex-row justify-between items-center h-auto">
                 {/* Logo */}
@@ -26,19 +27,19 @@ function Header() {
             </div>
 
             {/* Mobile screen header */}
-            <div className="sm:hidden flex flex-col justify-between items-center h-auto">
+            <div className="sm:hidden flex flex-col justify-between items-center h-auto overflow-hidden">
                 {/* Logo */}
                 <div className="flex justify-between w-full">
                     <span className="mx-5">
                         <Image src="/bitsKraftLogo.svg" width={150} height={50} layout="fixed" />
                     </span>
-                    <span className="mx-5" onClick={toggleMenu}>
+                    <span className="mx-5 cursor-pointer" onClick={toggleMenu}>
                         <Image src="/Hamburger.svg" width={30} height={50} layout="fixed" />
                     </span>
                 </div>
 
                 {/* Links */}
-                <div className={`${IsMenuVisible ? 'flex' : 'hidden'} flex-col justify-between items-center mx-3 my-3 w-2/3 text-xl border-2 rounded-lg`}>
+                <div className={`${IsMenuVisible ? `${HeaderStyles.sidebarOpened}` : `${HeaderStyles.sidebarClosed}`}`}>
                     <a className="cursor-pointer mx-4" href="#">Our Work</a>
                     <a className="cursor-pointer mx-4" href="#">Services</a>
                     <a className="cursor-pointer mx-4" href="#">About</a>
